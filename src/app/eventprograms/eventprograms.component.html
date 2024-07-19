@@ -1,0 +1,26 @@
+<div *ngIf="programs">
+    <h2>All Event Programs</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Image</th>
+          <th>Title</th>
+          <th>Type</th>
+          <th>Start Time</th>
+          <th>End Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let program of programs">
+          <td>{{ program.id }}</td>
+          <td><img [src]="program.image" alt="{{ program.title }}"></td>
+          <td>{{ program.title }}</td>
+          <td>{{ program.type }}</td>
+          <td>{{ program.startTime }}</td>
+          <td>{{ program.endTime }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

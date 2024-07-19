@@ -1,0 +1,21 @@
+<h1>Programs for Event {{ eventId }}</h1>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Type</th>
+      <th>Start Time</th>
+      <th>End Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let program of programs">
+      <td>{{ program.id }}</td>
+      <td>{{ program.title }}</td>
+      <td>{{ program.programType }}</td>
+      <td>{{ program.startTime }}</td>
+      <td>{{ program.endTime }}</td>
+    </tr>
+  </tbody>
+</table>

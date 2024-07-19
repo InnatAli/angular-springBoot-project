@@ -1,0 +1,32 @@
+
+.container {
+    text-align: center;
+  }
+  
+  header {
+    background-color: #a00;
+    color: #fff;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  header nav a {
+    color: #fff;
+    margin: 0 1rem;
+    text-decoration: none;
+  }
+  main {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px;
+   /* background-image: url('innat.jpg');*/
+    background-size: cover;
+    background-position: center;
+  }
