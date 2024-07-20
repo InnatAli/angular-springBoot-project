@@ -1,0 +1,18 @@
+
+<h2>{{ isEditMode ? 'Edit' : 'Add' }} Book</h2>
+<form (ngSubmit)="saveBook()">
+  <div>
+    <label>Title:</label>
+    <input type="text" [(ngModel)]="book.title" name="title" required>
+  </div>
+  <div>
+    <label>Author:</label>
+    <input type="text" [(ngModel)]="book.author" name="author" required>
+  </div>
+  <div>
+    <label>ISBN:</label>
+    <input type="text" [(ngModel)]="book.isbn" name="isbn" required>
+  </div>
+  <button type="submit">{{ isEditMode ? 'Update' : 'Create' }}</button>
+</form>
+<a routerLink="/books">Back to List</a>

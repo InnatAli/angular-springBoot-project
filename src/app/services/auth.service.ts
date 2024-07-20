@@ -1,35 +1,33 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Book } from '../book';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserAuthService {
-  private userBaseUrl = 'http://localhost:8080/api/users';
-  private adminBaseUrl = 'http://localhost:8080/api/admins'; 
-  private apiUrl = 'http://localhost:8080/api/users'; 
+export class BookService {
+  private apiUrl = 'http://localhost:8080/api/books';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-  register(user: any): Observable<any> {
-    const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    return this.http.post(`${this.userBaseUrl}/register`, user, { headers });
+  getBooks(): Observable<Book[]> {
+    return this.http.get<Book[]>(this.apiUrl);
   }
 
-  login(loginData: any): Observable<any> {
-    const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    return this.http.post(`${this.userBaseUrl}/login`, loginData, { headers });
+  getBook(id: number): Observable<Book> {
+    return this.http.get<Book>(`${this.apiUrl}/${id}`);
   }
 
-  adminLogin(loginData: any): Observable<any> {
-    const headers = new HttpHeaders().set('Content-Type', 'application/json');
-    return this.http.post(`${this.adminBaseUrl}/adminlogin`, loginData, { headers });
+  createBook(book: Book): Observable<Book> {
+    return this.http.post<Book>(this.apiUrl, book);
   }
 
+  updateBook(id: number, book: Book): Observable<Book> {
+    return this.http.put<Book>(`${this.apiUrl}/${id}`, book);
+  }
 
-  getAllUsers(): Observable<any> {
-    return this.http.get<any>(this.apiUrl);
+  deleteBook(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 }
-
